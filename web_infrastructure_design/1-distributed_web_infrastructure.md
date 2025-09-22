@@ -3,10 +3,6 @@
 This diagram shows a web infrastructure with a load balancer, two servers, and a database setup.
 
 ```mermaid
----
-config:
-  layout: fixed
----
 flowchart TD
     User["User"] -- HTTP/HTTPS request --> LB["Load Balancer HAProxy"]
     LB -- "Round-Robin" --> Server1["Server 1"]
