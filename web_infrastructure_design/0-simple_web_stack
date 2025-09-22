@@ -1,0 +1,37 @@
+````markdown
+# Simple One-Server Web Infrastructure
+
+This diagram shows a single server web infrastructure for the website `www.foobar.com`:
+
+```mermaid
+graph TD
+    %% User sends a request
+    User[User] -->|HTTP/HTTPS request| DNS["www#46;foobar#46;com (A record to 8.8.8.8)"]
+
+    %% DNS directs user to the server
+    DNS --> Server[Single Server]
+
+    %% Components inside the server
+    Server --> WebServer[Nginx Web Server]
+    WebServer --> AppServer[Application Server]
+    AppServer --> AppFiles["Application Files (Code Base)"]
+    AppServer --> DB[MySQL Database]
+````
+
+## Explanation
+
+1. **User**: The person who wants to access `www.foobar.com`.
+2. **DNS**: Resolves the domain name `www.foobar.com` to the server IP `8.8.8.8` (A record).
+3. **Server**: A single machine hosting all components.
+4. **Web Server (Nginx)**: Handles HTTP/HTTPS requests, serves static content, and forwards requests to the application server.
+5. **Application Server**: Processes the business logic of the application.
+6. **Application Files**: Code base stored on the server.
+7. **Database (MySQL)**: Stores persistent data for the application.
+
+## Issues with this setup
+
+* **SPOF (Single Point of Failure)**: If the server goes down, the website is completely unavailable.
+* **Downtime during maintenance**: Updating code or restarting the web server will cause service interruptions.
+* **Scalability**: Cannot handle very high traffic; performance depends on the single server.
+
+```
