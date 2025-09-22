@@ -1,4 +1,3 @@
-```markdown
 # Simple One-Server Web Infrastructure
 
 This diagram shows a single server web infrastructure for the website `www.foobar.com`:
@@ -33,4 +32,3 @@ graph TD
 * **SPOF (Single Point of Failure)**: If the server goes down, the website is completely unavailable.
 * **Downtime during maintenance**: Updating code or restarting the web server will cause service interruptions.
 * **Scalability**: Cannot handle very high traffic; performance depends on the single server.
-```
